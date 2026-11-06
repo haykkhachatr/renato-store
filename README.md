@@ -1,5 +1,7 @@
 # Renato — տղամարդկանց հագուստի խանութ
 
+**Կենդանի հղում.** https://haykkhachatr.github.io/renato-store/ · **Կոդ.** https://github.com/haykkhachatr/renato-store
+
 Եռալեզու (հայերեն · English · Русский) ժամանակակից առցանց խանութ՝ անիմացիաներով։ **Միայն տղամարդկանց հագուստ, առանց կոշիկի։** Մաքուր HTML/CSS/JS է, **առանց build-ի և առանց սերվերի**. կարելի է բացել անմիջապես `index.html`-ը կամ գործարկել `start.bat`-ը (բացվում է `http://localhost:8080/`)։
 
 ---
