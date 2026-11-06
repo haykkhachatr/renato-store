@@ -116,6 +116,15 @@
       '<a class="btn btn-ghost btn-lg" href="#/p/' + p.slug + '">' + t('spot.cta') + icon('arrow') + '</a></div></div></section>';
   }
 
+  /* two lifestyle photos, shown exactly as supplied (garments in them overlap, so they are not cut out) */
+  function lineup() {
+    return '<section class="sec wrap lineup" aria-labelledby="lu-t"><header class="sec-head" data-reveal><p class="eyebrow">' + t('lineup.eyebrow') + '</p><h2 id="lu-t" class="display">' + t('lineup.title') + '</h2></header>' +
+      '<div class="lineup-grid" data-stagger>' +
+      '<a class="lu lu-1" href="#/p/stefano" data-cursor="view"><img src="assets/products/lineup-turtleneck.jpg" width="801" height="788" loading="lazy" decoding="async" alt="' + esc(t('lineup.1.t')) + '"><span class="lu-cap"><b>' + t('lineup.1.t') + '</b><i>' + t('lineup.1.d') + '</i></span></a>' +
+      '<figure class="lu lu-2"><img src="assets/products/lineup-knit-tees.jpg" width="506" height="682" loading="lazy" decoding="async" alt="' + esc(t('lineup.2.t')) + '"><figcaption class="lu-cap"><b>' + t('lineup.2.t') + '</b><i>' + t('lineup.2.d') + '</i></figcaption></figure>' +
+      '</div></section>';
+  }
+
   function saleBand() {
     var items = D.filterCat('sale').slice(0, 3);
     var art = items.map(function (p, i) {
@@ -177,6 +186,8 @@
       }).join('') + '</div></header>' +
       '<div id="arr-grid" role="tabpanel" aria-labelledby="tab-new">' + grid(arrivalsList('new')) + '</div>' +
       '<p class="center"><a class="btn btn-ghost" data-magnetic href="#/shop/all">' + t('ui.viewall') + icon('arrow') + '</a></p></section>' +
+
+      lineup() +
 
       saleBand() +
 

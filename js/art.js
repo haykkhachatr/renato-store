@@ -643,7 +643,9 @@
   };
   var VIEWBOX = '0 0 400 500';
 
+  var ALIAS = { vest: 'jacket', turtleneck: 'sweater' };   // types that only exist as photos fall back to the closest drawing
   function render(type, opts) {
+    type = ALIAS[type] || type;
     opts = opts || {};
     var c = opts.c || '#8a8a8a';
     var inner;

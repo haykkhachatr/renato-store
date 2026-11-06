@@ -41,6 +41,14 @@
         charcoal: ['assets/products/lorenzo-grey-1.jpg', 'assets/products/lorenzo-grey-2.jpg', 'assets/products/lorenzo-grey-3.jpg'],
         taupe: ['assets/products/lorenzo-taupe-1.jpg', 'assets/products/lorenzo-taupe-2.jpg', 'assets/products/lorenzo-taupe-3.jpg']
       } },
+    /* Valerio / Adriano / Emilio / Sergio use REAL photos too (cut from the owner's lifestyle shots, see README §5). */
+    { slug: 'valerio', name: 'Valerio', type: 'vest', price: 44900,
+      colors: [c('black'), c('navy')], sizes: SZ.m, oos: ['S', 'XXL'], fabric: 'nylon', fit: 'regular', care: 'm30', tags: ['new', 'best'], tint: 'stone',
+      photoViews: ['front', 'collar', 'pocket'],
+      photos: {
+        black: ['assets/products/valerio-black-1.jpg', 'assets/products/valerio-black-2.jpg', 'assets/products/valerio-black-3.jpg'],
+        navy: ['assets/products/valerio-navy-1.jpg', 'assets/products/valerio-navy-2.jpg', 'assets/products/valerio-navy-3.jpg']
+      } },
     { slug: 'carlo', name: 'Carlo', type: 'coat', price: 94900, colors: [c('charcoal'), c('camel'), c('navy')], sizes: SZ.suit, oos: ['46'], fabric: 'woolblend', fit: 'regular', care: 'dry', tags: ['new', 'best'], tint: 'slate' },
     { slug: 'matteo', name: 'Matteo', type: 'blazer', price: 72900, colors: [c('navy'), c('grey'), c('tobacco')], sizes: SZ.suit, oos: ['46', '54'], fabric: 'woolblend', fit: 'regular', care: 'dry', tags: ['new'], tint: 'sand' },
     { slug: 'dino', name: 'Dino', type: 'blazer', price: 64900, old: 79900, colors: [c('sand'), c('navy')], sizes: SZ.suit, oos: ['54'], fabric: 'linen', fit: 'relaxed', care: 'dry', tags: ['sale'], tint: 'slate' },
@@ -48,6 +56,17 @@
     { slug: 'silvio', name: 'Silvio', type: 'jacket', price: 49900, colors: [c('olive'), c('black'), c('khaki')], sizes: SZ.m, oos: [], fabric: 'nylon', fit: 'relaxed', care: 'm30', tags: ['best'], tint: 'stone' },
 
     /* ---- knitwear & hoodies ---- */
+    { slug: 'adriano', name: 'Adriano', type: 'cardigan', price: 42900,
+      colors: [c('navy'), c('charcoal')], sizes: SZ.m, oos: ['XXL'], fabric: 'cotton', fit: 'regular', care: 'hand', tags: ['new', 'best'], tint: 'stone',
+      photoViews: ['front', 'collar', 'detail'],
+      photos: {
+        navy: ['assets/products/adriano-navy-1.jpg', 'assets/products/adriano-navy-2.jpg', 'assets/products/adriano-navy-3.jpg'],
+        charcoal: ['assets/products/adriano-charcoal-1.jpg', 'assets/products/adriano-charcoal-2.jpg', 'assets/products/adriano-charcoal-3.jpg']
+      } },
+    { slug: 'stefano', name: 'Stefano', type: 'turtleneck', price: 27900,
+      colors: [c('black')], sizes: SZ.m, oos: [], fabric: 'merino', fit: 'regular', care: 'hand', tags: ['new'], tint: 'stone',
+      photoViews: ['front', 'collar', 'detail'],
+      photos: { black: ['assets/products/stefano-black-1.jpg', 'assets/products/stefano-black-2.jpg', 'assets/products/stefano-black-3.jpg'] } },
     { slug: 'paolo', name: 'Paolo', type: 'sweater', price: 34900, colors: [c('navy'), c('ecru'), c('forest')], sizes: SZ.m, oos: ['XXL'], fabric: 'merino', fit: 'regular', care: 'hand', tags: ['new'], tint: 'slate' },
     { slug: 'ivo', name: 'Ivo', type: 'sweater', price: 29900, colors: [c('charcoal'), c('burgundy'), c('sand')], sizes: SZ.m, oos: [], fabric: 'merino', fit: 'relaxed', care: 'hand', tags: ['best'], tint: 'sage' },
     { slug: 'renzo', name: 'Renzo', type: 'cardigan', price: 38900, colors: [c('tobacco'), c('charcoal'), c('forest')], sizes: SZ.m, oos: ['S'], fabric: 'merino', fit: 'regular', care: 'hand', tags: ['new'], tint: 'oat' },
@@ -59,6 +78,13 @@
     { slug: 'aldo', name: 'Aldo', type: 'shirt', price: 21900, colors: [c('white'), c('sand'), c('sage')], sizes: SZ.m, oos: ['S'], fabric: 'linen', fit: 'relaxed', care: 'm30', tags: [], tint: 'slate' },
     { slug: 'bruno', name: 'Bruno', type: 'shirt', price: 22900, colors: [c('checkgreen', { pat: 'check' }), c('checkrust', { pat: 'check' })], sizes: SZ.m, oos: [], fabric: 'flannel', fit: 'regular', care: 'm30', tags: ['new'], tint: 'oat' },
     { slug: 'fabio', name: 'Fabio', type: 'polo', price: 15900, colors: [c('white'), c('navy'), c('olive')], sizes: SZ.m, oos: [], fabric: 'pique', fit: 'regular', care: 'm30', tags: ['new'], tint: 'sage' },
+    { slug: 'emilio', name: 'Emilio', type: 'tee', price: 13900,
+      colors: [c('white'), c('black')], sizes: SZ.m, oos: [], fabric: 'organic', fit: 'regular', care: 'm30', tags: ['new', 'best'], tint: 'stone',
+      photoViews: ['front', 'collar', 'detail'],
+      photos: {
+        white: ['assets/products/emilio-white-1.jpg', 'assets/products/emilio-white-2.jpg', 'assets/products/emilio-white-3.jpg'],
+        black: ['assets/products/emilio-black-1.jpg', 'assets/products/emilio-black-2.jpg', 'assets/products/emilio-black-3.jpg']
+      } },
     { slug: 'luca', name: 'Luca', type: 'tee', price: 10900, colors: [c('white'), c('black'), c('olive'), c('stone')], sizes: SZ.m, oos: [], fabric: 'organic', fit: 'regular', care: 'm30', tags: ['best'], tint: 'clay' },
     { slug: 'nico', name: 'Nico', type: 'longsleeve', price: 14900, colors: [c('black'), c('cream'), c('rust')], sizes: SZ.m, oos: [], fabric: 'cotton', fit: 'regular', care: 'm30', tags: [], tint: 'sage' },
 
@@ -80,8 +106,8 @@
 
   /* product groups = navigation + category tiles */
   var GROUPS = [
-    { key: 'outer', types: ['coat', 'blazer', 'jacket'] },
-    { key: 'knit', types: ['sweater', 'cardigan', 'hoodie'] },
+    { key: 'outer', types: ['coat', 'blazer', 'jacket', 'vest'] },
+    { key: 'knit', types: ['sweater', 'turtleneck', 'cardigan', 'hoodie'] },
     { key: 'shirts', types: ['shirt', 'polo', 'longsleeve', 'tee'] },
     { key: 'bottoms', types: ['trousers', 'jeans', 'shorts'] },
     { key: 'accessories', types: ['scarf', 'beanie', 'cap', 'tote', 'belt', 'socks'] }
