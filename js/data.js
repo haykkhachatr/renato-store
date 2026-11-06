@@ -8,7 +8,7 @@
     white: '#F3EFE8', cream: '#EADFCB', ecru: '#E7DCC6', black: '#25221F', charcoal: '#3B3835', stone: '#B7AC9E',
     sand: '#CDBB9B', camel: '#B48A5E', olive: '#5E6B45', sage: '#8DA07E', forest: '#2F4536', khaki: '#A39A72',
     rust: '#B9542F', burgundy: '#6F2A32', navy: '#27364D', indigo: '#3E5675', wash: '#8FA8C2', sky: '#C9DAE8',
-    natural: '#E6DCC6', grey: '#7D7A75', tobacco: '#6B4A35', brown: '#5A3A22', cognac: '#9A5B2C',
+    natural: '#E6DCC6', grey: '#7D7A75', taupe: '#A58E84', tobacco: '#6B4A35', brown: '#5A3A22', cognac: '#9A5B2C',
     stripe: '#F3EFE8', checkgreen: '#3F5A45', checkrust: '#9B4B2D', blush: '#E8C6BA'
   };
   /* backdrop tints for product cards */
@@ -31,6 +31,16 @@
   /* tags: new | best | sale | last   (a product is "sold out" when every size is in oos) */
   var P = [
     /* ---- outerwear ---- */
+    /* Lorenzo uses REAL photos (assets/products). photoViews = what each photo shows (captions in the gallery). */
+    { slug: 'lorenzo', name: 'Lorenzo', type: 'jacket', price: 98900,
+      colors: [c('burgundy', { hex: '#5B2B33' }), c('charcoal', { hex: '#48484B' }), c('taupe', { hex: '#A58E84' })],
+      sizes: SZ.m, oos: ['S'], fabric: 'quilted', fit: 'regular', care: 'dry', tags: ['new', 'best'], tint: 'stone',
+      photoViews: ['front', 'collar', 'pocket'],
+      photos: {
+        burgundy: ['assets/products/lorenzo-burgundy-1.jpg', 'assets/products/lorenzo-burgundy-2.jpg', 'assets/products/lorenzo-burgundy-3.jpg'],
+        charcoal: ['assets/products/lorenzo-grey-1.jpg', 'assets/products/lorenzo-grey-2.jpg', 'assets/products/lorenzo-grey-3.jpg'],
+        taupe: ['assets/products/lorenzo-taupe-1.jpg', 'assets/products/lorenzo-taupe-2.jpg', 'assets/products/lorenzo-taupe-3.jpg']
+      } },
     { slug: 'carlo', name: 'Carlo', type: 'coat', price: 94900, colors: [c('charcoal'), c('camel'), c('navy')], sizes: SZ.suit, oos: ['46'], fabric: 'woolblend', fit: 'regular', care: 'dry', tags: ['new', 'best'], tint: 'slate' },
     { slug: 'matteo', name: 'Matteo', type: 'blazer', price: 72900, colors: [c('navy'), c('grey'), c('tobacco')], sizes: SZ.suit, oos: ['46', '54'], fabric: 'woolblend', fit: 'regular', care: 'dry', tags: ['new'], tint: 'sand' },
     { slug: 'dino', name: 'Dino', type: 'blazer', price: 64900, old: 79900, colors: [c('sand'), c('navy')], sizes: SZ.suit, oos: ['54'], fabric: 'linen', fit: 'relaxed', care: 'dry', tags: ['sale'], tint: 'slate' },

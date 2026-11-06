@@ -5,6 +5,7 @@
   var esc = U.esc, icon = U.icon, money = U.money;
 
   function tint(p) { return D.TINTS[p.tint]; }
+  function blurbKey(p) { return T.has('blurb.' + p.slug) ? 'blurb.' + p.slug : 'blurb.' + p.type; }   // a product may have its own description
   function typeName(p) { return t('type.' + p.type); }
 
   /* split a headline into masked words; *x* marks emphasis */
@@ -106,7 +107,7 @@
       '<div class="spot-info"><p class="eyebrow" data-reveal>' + t('spot.eyebrow') + '</p>' +
       '<h2 id="spot-t" class="display" data-reveal>' + esc(p.name) + '<span class="spot-type">' + typeName(p) + '</span></h2>' +
       '<p class="pdp-price" data-reveal>' + priceHTML(p) + '</p>' +
-      '<p class="lead" data-reveal>' + t('blurb.' + p.type) + '</p>' +
+      '<p class="lead" data-reveal>' + t(blurbKey(p)) + '</p>' +
       '<div class="pdp-opt" data-reveal><p class="opt-label">' + t('p.color') + ': <b id="spot-color-name">' + t('col.' + p.colors[0].k) + '</b></p>' +
       '<div class="swatches swatches-lg" role="group" aria-label="' + t('p.color') + '">' + p.colors.map(function (c, i) { return swatch(p, i, 0, 'spot-color'); }).join('') + '</div></div>' +
       '<div class="pdp-opt" data-reveal><p class="opt-label">' + t('p.size') + ': <b id="spot-size-name">—</b></p>' +
@@ -168,7 +169,7 @@
       '<section class="sec wrap cats" aria-labelledby="cats-t"><header class="sec-head" data-reveal><p class="eyebrow">' + t('cats.eyebrow') + '</p><h2 id="cats-t" class="display">' + t('cats.title') + '</h2></header>' +
       '<div class="cats-grid" data-stagger>' + catTile('outer', B.carlo, 'camel', 'slate') + catTile('knit', B.enzo, 'charcoal', 'clay') + catTile('shirts', B.fabio, 'navy', 'sage') + catTile('bottoms', B.tommaso, 'indigo', 'oat') + catTile('accessories', B.vito, 'brown', 'sand') + '</div></section>' +
 
-      spotlight(B.matteo) +
+      spotlight(B.lorenzo) +
 
       '<section class="sec wrap arrivals" aria-labelledby="arr-t"><header class="sec-head sec-head-row" data-reveal><div><p class="eyebrow">' + t('arr.eyebrow') + '</p><h2 id="arr-t" class="display">' + t('arr.title') + '</h2></div>' +
       '<div class="tabs" role="tablist">' + ['new', 'best', 'sale'].map(function (k, i) {
@@ -314,7 +315,9 @@
     var views = ['front', 'back', 'detail'];
     var h = '', i;
     for (i = 0; i < 3; i++) {
-      h += '<figure class="gal-img' + (i === 0 ? ' gal-wide' : '') + '" style="--tint:' + tint(p) + '" data-zoom aria-label="' + esc(p.name + ' — ' + t('p.view.' + i)) + '">' + D.art(p, ci, views[i]) + '<figcaption>' + t('p.view.' + i) + '</figcaption></figure>';
+      // photos may show close-ups instead of a back view: p.photoViews names what each photo is
+      var cap = t('p.view.' + (D.hasPhotos(p) && p.photoViews ? p.photoViews[i] : i));
+      h += '<figure class="gal-img' + (i === 0 ? ' gal-wide' : '') + '" style="--tint:' + tint(p) + '" data-zoom aria-label="' + esc(p.name + ' — ' + cap) + '">' + D.art(p, ci, views[i]) + '<figcaption>' + cap + '</figcaption></figure>';
     }
     // colour story (illustrations only): every colourway side by side
     if (!D.hasPhotos(p)) {
@@ -358,7 +361,7 @@
       '<p class="eyebrow">' + typeName(p) + (p.tags.indexOf('new') >= 0 ? ' · ' + t('badge.new') : '') + '</p>' +
       '<h1 class="display pdp-title">' + esc(p.name) + '</h1>' +
       '<p class="pdp-price" id="pdp-price">' + priceHTML(p) + (disc ? '<span class="badge badge-sale">−' + disc + '%</span>' : '') + '</p>' +
-      '<p class="pdp-blurb">' + t('blurb.' + p.type) + '</p>' +
+      '<p class="pdp-blurb">' + t(blurbKey(p)) + '</p>' +
       '<div class="pdp-opt"><p class="opt-label">' + t('p.color') + ': <b id="color-name">' + t('col.' + p.colors[0].k) + '</b></p>' +
       '<div class="swatches swatches-lg" role="group" aria-label="' + t('p.color') + '">' + p.colors.map(function (c, i) { return swatch(p, i, 0, 'pdp-color'); }).join('') + '</div></div>' +
       '<div class="pdp-opt"><div class="opt-label opt-row"><span>' + t('p.size') + ': <b id="size-name">—</b></span><a class="link-btn" href="#/page/size">' + icon('ruler') + t('p.guide') + '</a></div>' +
@@ -368,7 +371,7 @@
       '<button type="button" class="btn-sq wish-lg' + (wish ? ' on' : '') + '" data-act="wish" data-slug="' + p.slug + '" aria-pressed="' + wish + '" aria-label="' + t(wish ? 'p.wish.rm' : 'p.wish') + '">' + icon('heart') + '</button></div>' +
       '<ul class="pdp-perks"><li>' + icon('truck') + t('feat.1.d') + '</li><li>' + icon('ret') + t('feat.2.d') + '</li></ul>' +
       '<div class="acc-list">' +
-      '<details open><summary>' + t('p.desc') + icon('chevron') + '</summary><div class="acc-body"><p>' + t('blurb.' + p.type) + '</p><dl class="specs"><div><dt>' + t('p.fit') + '</dt><dd>' + t('fit.' + p.fit) + '</dd></div><div><dt>' + t('p.sku') + '</dt><dd>' + p.sku + '</dd></div></dl></div></details>' +
+      '<details open><summary>' + t('p.desc') + icon('chevron') + '</summary><div class="acc-body"><p>' + t(blurbKey(p)) + '</p><dl class="specs"><div><dt>' + t('p.fit') + '</dt><dd>' + t('fit.' + p.fit) + '</dd></div><div><dt>' + t('p.sku') + '</dt><dd>' + p.sku + '</dd></div></dl></div></details>' +
       '<details><summary>' + t('p.fabric') + icon('chevron') + '</summary><div class="acc-body"><p>' + t('fab.' + p.fabric) + '</p><p>' + t('care.' + p.care) + '</p></div></details>' +
       '<details><summary>' + t('p.ship') + icon('chevron') + '</summary><div class="acc-body"><p>' + t('p.ship.t', { amt: money(CFG.freeShippingFrom) }) + '</p></div></details></div>' +
       (CFG.draftNotes ? '<p class="ph-note">' + t('p.placeholder') + '</p>' : '') +

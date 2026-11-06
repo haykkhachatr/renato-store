@@ -544,6 +544,11 @@ em{font-style:italic;color:var(--accent-d)}
 .art-img{display:block;width:100%;height:100%;object-fit:cover}
 .card-art .art-img{margin:0}
 .thumb .art-img{transform:none}
+.spot-art:has(.art-img){position:absolute;inset:0;width:auto}
+.spot-art .art-img{transition:transform .9s var(--ease)}
+.spot-visual:hover .spot-art .art-img{transform:scale(1.03)}
+.spot-visual:has(.art-img) .spot-mark{display:none}
+.mf-art .art-img,.thumb .art-img,.cart-line .art-img{object-position:50% 42%}
 .arch-art:has(.art-img){inset:0;left:0;bottom:0;width:100%;height:100%;transform:none}
 .cat-art:has(.art-img),.mf-art .art-img{width:100%}
 .lk-art .art-img,.sv-a .art-img,.sv-b .art-img{height:auto;border-radius:18px}
@@ -713,7 +718,8 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{outline:none;bor
   .gal-count{display:block;position:sticky;right:14px;left:auto;bottom:12px;margin-left:auto;align-self:flex-end;flex:none;font-size:.76rem;font-weight:700;background:var(--ink);color:#fff;padding:.3em .8em;border-radius:999px;position:absolute;top:12px;right:calc(var(--gutter) + 8px);bottom:auto}
   .pdp-bar{display:flex}
   body[data-route="product"] .toasts{bottom:92px}
-  .co,.size-grid,.contact-grid,.about-grid{grid-template-columns:1fr}
+  .co,.size-grid,.contact-grid,.about-grid{grid-template-columns:minmax(0,1fr)}
+  .co>*,.size-grid>*,.contact-grid>*,.about-grid>*{min-width:0}
   .summary,.finder{position:static}
   .mega{display:none}
   .lookbook{padding-top:clamp(32px,6vw,64px)}
@@ -725,6 +731,11 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{outline:none;bor
   .look-visual{aspect-ratio:1/.9}
 }
 @media (max-width:760px){
+  .shop-bar{flex-wrap:wrap;gap:10px}
+  .sort{margin-left:auto;min-width:0}
+  .sort>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}   /* label stays for screen readers */
+  .sort select{max-width:100%}
+  .shop-total{order:3;flex-basis:100%}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cats-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"o o" "k s" "b a";grid-auto-rows:clamp(170px,46vw,260px)}
   .cat-outer{min-height:clamp(300px,86vw,440px)}
